@@ -28,6 +28,12 @@ public class InterfaceLogin {
         return senhaDigitada;
     }
 
+    public int verificacaoAdm(){
+        System.out.println("Nível de acesso:\n1.Administrador\n2. Normal");
+        int opcao = scanner.nextInt();
+        return opcao;
+    }
+
     public void limpar(){
         scanner.nextLine();
     }

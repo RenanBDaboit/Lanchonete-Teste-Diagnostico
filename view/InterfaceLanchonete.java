@@ -14,7 +14,7 @@ public class InterfaceLanchonete {
         System.out.println("\t\tBem-vindo");
 
         for (Produto produto: listaProdutos) {
-            System.out.println(produto);
+            System.out.print(produto);
         }
         int opcao = scanner.nextInt();
         limpar();

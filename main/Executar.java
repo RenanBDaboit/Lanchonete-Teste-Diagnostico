@@ -8,14 +8,17 @@ public class Executar{
 
     public static void main(String[] args) {
         
+        InterfaceAdm uiAdm = new InterfaceAdm();
         InterfaceEntrada uiEntrada = new InterfaceEntrada();
         InterfaceLanchonete uiLanchonete = new InterfaceLanchonete();
         VerificacaoUsuario verificacaoUsuario = new VerificacaoUsuario();
         CadastrarUsuario cadastrarUsuario = new CadastrarUsuario();
+        CadastrarProduto cadastrarProduto = new CadastrarProduto();
         Produto produto = new Produto();
         ProdutosPadrao produtosPadrao = new ProdutosPadrao();
 
         int opcaoInicial;
+        int opcaoAdm;
         int respostaFinal;
 
         produtosPadrao.adicionarProdutos(produto.getListaProdutos());
@@ -26,7 +29,30 @@ public class Executar{
             switch (opcaoInicial) {
                 case 1:
 
-                    if(verificacaoUsuario.verificacao(cadastrarUsuario.getListaUsuarios())){
+                    if (verificacaoUsuario.verificacao(cadastrarUsuario.getListaUsuarios()) == 1) {
+                        do {
+                            opcaoAdm = uiAdm.menuAdm();
+                            switch (opcaoAdm) {
+                                case 1:
+                                    cadastrarUsuario.cadastro();
+                                    break;
+                            
+                                case 2: 
+                                    Produto produtoNovo = cadastrarProduto.cadastroProduto();
+                                    produto.getListaProdutos().add(produtoNovo);
+                                    break;
+
+                                case 3:                             
+                                    break;
+
+                                default:
+                                    uiEntrada.opcaoInvalida();
+                                    break;
+                            }
+
+                        } while (opcaoAdm != 3);
+                    }
+                    else if(verificacaoUsuario.verificacao(cadastrarUsuario.getListaUsuarios()) == 2){
 
                         do {
                             int resposta;
@@ -49,16 +75,12 @@ public class Executar{
                     break;
 
                 case 2:
-                    cadastrarUsuario.cadastro();
-                    break;
-
-                case 3:
                     break;
 
                 default:
                     uiEntrada.opcaoInvalida();
             }
 
-        } while (opcaoInicial != 3);
+        } while (opcaoInicial != 2);
     }
 }

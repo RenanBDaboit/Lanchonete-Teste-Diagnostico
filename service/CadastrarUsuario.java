@@ -17,7 +17,7 @@ public class CadastrarUsuario {
 
     InterfaceLogin uiLogin = new InterfaceLogin();
 
-    public void cadastro(){
+    public void cadastro(ArrayList<Usuario> listaUsuariosCerto){
 
 
         VerificacaoUsuario verificacaoUsuario = new VerificacaoUsuario();
@@ -29,7 +29,7 @@ public class CadastrarUsuario {
 
         if(verificacaoAdm == 1){
 
-            if (verificacaoUsuario.verificacaoAdm(listaUsuarios)) {
+            if (verificacaoUsuario.verificacaoAdm(listaUsuariosCerto)) {
                 
             Usuario usuario = new UsuarioAdm(nomeNovo, loginNovo, senhaNova);
             listaUsuarios.add(usuario);

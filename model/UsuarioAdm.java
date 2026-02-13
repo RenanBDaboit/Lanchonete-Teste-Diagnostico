@@ -8,6 +8,9 @@ public class UsuarioAdm extends Usuario{
         super(nome, login, senha);
     }
 
+    public UsuarioAdm(){
+    }
+
     public void usuarioOriginal(ArrayList<Usuario> listaUsuarios){
 
         listaUsuarios.add(new UsuarioAdm("Renan", "renan", "1234"));

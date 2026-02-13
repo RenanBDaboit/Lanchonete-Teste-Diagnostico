@@ -16,7 +16,7 @@ public class InterfaceLanchonete {
         for (Produto produto: listaProdutos) {
             System.out.print(produto);
         }
-        int opcao = scanner.nextInt();
+        int opcao = scanner.nextInt() - 1;
         limpar();
         System.out.print("Quantidade: ");
         int quantidade = scanner.nextInt();
@@ -32,7 +32,7 @@ public class InterfaceLanchonete {
     }
 
     public void pagamento(double valorTotal){
-        System.out.println("Valor total a pagar: R$" + valorTotal);
+        System.out.printf("Valor total a pagar: R$%.2f\n", valorTotal);
 
         System.out.println("\t\tForma de pagamento"
                          + "\n1. Crédito"

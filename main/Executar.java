@@ -16,25 +16,28 @@ public class Executar{
         CadastrarProduto cadastrarProduto = new CadastrarProduto();
         Produto produto = new Produto();
         ProdutosPadrao produtosPadrao = new ProdutosPadrao();
+        UsuarioAdm usuarioAdm = new UsuarioAdm();
 
         int opcaoInicial;
         int opcaoAdm;
         int respostaFinal;
 
+        usuarioAdm.usuarioOriginal(cadastrarUsuario.getListaUsuarios());
         produtosPadrao.adicionarProdutos(produto.getListaProdutos());
 
         do { 
             opcaoInicial = uiEntrada.menuInicial();
 
             switch (opcaoInicial) {
+            
                 case 1:
-
-                    if (verificacaoUsuario.verificacao(cadastrarUsuario.getListaUsuarios()) == 1) {
+                    int nivelUser = verificacaoUsuario.verificacao(cadastrarUsuario.getListaUsuarios());
+                    if (nivelUser == 1) {
                         do {
                             opcaoAdm = uiAdm.menuAdm();
                             switch (opcaoAdm) {
                                 case 1:
-                                    cadastrarUsuario.cadastro();
+                                    cadastrarUsuario.cadastro(cadastrarUsuario.getListaUsuarios());
                                     break;
                             
                                 case 2: 
@@ -52,7 +55,7 @@ public class Executar{
 
                         } while (opcaoAdm != 3);
                     }
-                    else if(verificacaoUsuario.verificacao(cadastrarUsuario.getListaUsuarios()) == 2){
+                    else if(nivelUser == 2){
 
                         do {
                             int resposta;

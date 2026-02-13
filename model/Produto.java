@@ -7,6 +7,9 @@ public class Produto{
     private String nome;
     private double valor;
     private int quantidade;
+    
+    private int id;
+    private static int contadorId = 0;
 
     ArrayList<Produto> listaProdutos;
 
@@ -22,6 +25,8 @@ public class Produto{
         this.nome = nome;
         this.valor = valor;
         this.quantidade = quantidade;
+
+        this.id = ++contadorId;
     }
 
     public String getNome(){
@@ -50,7 +55,7 @@ public class Produto{
 
     @Override
     public String toString() {
-        return this.nome + " --- R$" + valor + "\n";
+        return id + ". " + this.nome + " --- R$" + valor + "\n";
     }    
 
     public ArrayList<Produto> getListaProdutos(){

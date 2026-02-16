@@ -6,18 +6,11 @@ import model.UsuarioAdm;
 import view.InterfaceLogin;
 
 
-
 public class CadastrarUsuario {
-
-    ArrayList<Usuario> listaUsuarios;
-
-    public CadastrarUsuario() {
-        listaUsuarios = new ArrayList<>();
-    }
 
     InterfaceLogin uiLogin = new InterfaceLogin();
 
-    public void cadastro(ArrayList<Usuario> listaUsuariosCerto){
+    public void cadastro(ArrayList<Usuario> listaUsuarios){
 
 
         VerificacaoUsuario verificacaoUsuario = new VerificacaoUsuario();
@@ -29,9 +22,9 @@ public class CadastrarUsuario {
 
         if(verificacaoAdm == 1){
 
-            if (verificacaoUsuario.verificacaoAdm(listaUsuariosCerto)) {
+            if (verificacaoUsuario.verificacaoAdm(listaUsuarios)) {
                 
-            Usuario usuario = new UsuarioAdm(nomeNovo, loginNovo, senhaNova);
+            UsuarioAdm usuario = new UsuarioAdm(nomeNovo, loginNovo, senhaNova);
             listaUsuarios.add(usuario);
             }
             else{
@@ -45,9 +38,4 @@ public class CadastrarUsuario {
         }
 
     }
-
-    public ArrayList<Usuario> getListaUsuarios(){
-        return listaUsuarios;
-    }
-
 }

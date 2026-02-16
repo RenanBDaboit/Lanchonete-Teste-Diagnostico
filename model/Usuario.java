@@ -1,15 +1,21 @@
 package model;
 
+import java.util.ArrayList;
+
 public class Usuario {
     
     private String nome;
     private String login;
     private String senha;
 
+    ArrayList<Usuario> listaUsuarios;
+
     public Usuario() {
         this.nome = "";
         this.login = "";
         this.senha = "";
+
+        listaUsuarios = new ArrayList<>();
     }
 
     public Usuario(String nome, String login, String senha) {
@@ -40,5 +46,9 @@ public class Usuario {
     
     public void setSenha(String novaSenha){
         this.senha = novaSenha;
+    }
+
+    public ArrayList<Usuario> getListaUsuarios(){
+        return listaUsuarios;
     }
 }

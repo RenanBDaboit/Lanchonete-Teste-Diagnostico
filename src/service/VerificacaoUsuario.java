@@ -3,11 +3,13 @@ package service;
 import java.util.ArrayList;
 import model.Usuario;
 import model.UsuarioAdm;
+import view.InterfaceErro;
 import view.InterfaceLogin;
 
 public class VerificacaoUsuario {
 
     InterfaceLogin uiLogin = new InterfaceLogin();
+    InterfaceErro uiErro = new InterfaceErro();
 
     public int verificacao(ArrayList<Usuario> listaUsuarios){
         
@@ -27,7 +29,7 @@ public class VerificacaoUsuario {
         }
 
         if (verificado == false) {
-            uiLogin.acessoNegado();
+            uiErro.acessoNegado();
             return 0;
         }
         else if (verificado && adm) {
@@ -54,7 +56,7 @@ public class VerificacaoUsuario {
         }
 
         if (verificado == false) {
-            uiLogin.acessoNegado();
+            uiErro.acessoNegado();
         }
 
         return verificado;

@@ -3,12 +3,14 @@ package service;
 import java.util.ArrayList;
 import model.Usuario;
 import model.UsuarioAdm;
+import view.InterfaceErro;
 import view.InterfaceLogin;
 
 
 public class CadastrarUsuario {
 
     InterfaceLogin uiLogin = new InterfaceLogin();
+    InterfaceErro uiErro = new InterfaceErro();
 
     public void cadastro(ArrayList<Usuario> listaUsuarios){
 
@@ -28,7 +30,7 @@ public class CadastrarUsuario {
             listaUsuarios.add(usuario);
             }
             else{
-                uiLogin.acessoNegado();
+                uiErro.acessoNegado();
             }
 
         }

@@ -55,7 +55,7 @@ public class Produto{
 
     @Override
     public String toString() {
-        return id + ". " + this.nome + " --- R$" + valor + "\n";
+        return id + ". " + this.nome + " --- R$" + valor + " | Estoque: " + quantidade + "\n";
     }    
 
     public ArrayList<Produto> getListaProdutos(){

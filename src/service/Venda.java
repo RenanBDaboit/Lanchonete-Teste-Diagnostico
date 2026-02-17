@@ -1,16 +1,13 @@
 package service;
 
-import java.util.ArrayList;
 import model.Produto;
 
 public class Venda {
-    public double calculoValorTotal(ArrayList<Produto> listaProduto){
+    public double calculoValorTotal(Produto produto, int quantidade){
        
-        double valorTotal = 0;
+        double valorTotal;
        
-        for (Produto produto : listaProduto) {
-            valorTotal += produto.getValor() * produto.getQuantidade();
-        }
+        valorTotal = produto.getValor() * quantidade;
 
         return valorTotal;
     }

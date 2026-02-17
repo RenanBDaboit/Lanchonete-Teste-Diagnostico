@@ -63,6 +63,8 @@ public class Executar{
                             Carrinho carrinho = new Carrinho();
                             Venda venda = new Venda();
                         
+                            double valorTotal = 0;
+
                             do {
                                 Produto produtoEscolhido = uiLanchonete.menu(produto.getListaProdutos());
                                 int quantidadeProdutoEscolhido;
@@ -75,11 +77,11 @@ public class Executar{
                                 }while(quantidadeProdutoEscolhido > produtoEscolhido.getQuantidade());
 
                                 carrinho.adicionarProduto(produtoEscolhido, quantidadeProdutoEscolhido);
+
+                                valorTotal += venda.calculoValorTotal(produtoEscolhido, quantidadeProdutoEscolhido);
                                 resposta = uiLanchonete.confirmacaoMenu();
                             } while (resposta == 1);
-                        
-                            double valorTotal = venda.calculoValorTotal(carrinho.getListaProdutos());
-                        
+                            
                             uiLanchonete.pagamento(valorTotal);
                         
                             respostaFinal = uiLanchonete.confirmacaoFinal();

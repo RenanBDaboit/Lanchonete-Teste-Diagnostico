@@ -95,7 +95,6 @@ public class Executar{
                 default:
                     uiErro.opcaoInvalida();
             }
-
         } while (opcaoInicial != 2);
     }
 }

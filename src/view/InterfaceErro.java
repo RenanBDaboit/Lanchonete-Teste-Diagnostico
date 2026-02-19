@@ -14,4 +14,8 @@ public class InterfaceErro {
     public void quantidadeNegada(){
         System.out.println("Quantidade escolhida maior que estoque do produto");
     }
+
+    public void entradaInvalida(){
+        System.out.println("Entrada do usuário inválida, tente novamente");
+    }
 }

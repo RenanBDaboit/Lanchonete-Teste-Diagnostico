@@ -1,12 +1,16 @@
 package view;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import model.Produto;
 
 public class InterfaceLanchonete {
     
     Scanner scanner = new Scanner(System.in);
+
+    InterfaceErro uiErro = new InterfaceErro();
+    InterfaceLogin uiLogin = new InterfaceLogin();
 
     public Produto menu(ArrayList<Produto> listaProdutos){
 
@@ -15,21 +19,46 @@ public class InterfaceLanchonete {
         for (Produto produto: listaProdutos) {
             System.out.print(produto);
         }
-        int opcao = scanner.nextInt() - 1;
-        limpar();
-        return listaProdutos.get(opcao);
+        while (true) {
+           
+            try {
+                int opcao = scanner.nextInt();  
+                return listaProdutos.get(opcao);
+            } catch (InputMismatchException erro) {
+                uiErro.entradaInvalida();    
+                uiLogin.limpar();    
+            }                
+        }
     }
 
     public int receberQuantidade(){
         System.out.print("Quantidade: ");
-        int quantidade = scanner.nextInt();
-        return quantidade;
+
+        while (true) {
+           
+            try {
+                int quantidade = scanner.nextInt();  
+                return quantidade;
+            } catch (InputMismatchException erro) {
+                uiErro.entradaInvalida();    
+                uiLogin.limpar();    
+            }                
+        }
     }
 
     public int confirmacaoMenu(){
         System.out.println("Deseja adicionar mais um produto? (1 -> Sim / 2 -> Não)");
-        int resposta = scanner.nextInt();
-        return resposta;
+       
+        while (true) {
+           
+            try {
+                int resposta = scanner.nextInt();  
+                return resposta;
+            } catch (InputMismatchException erro) {
+                uiErro.entradaInvalida();    
+                uiLogin.limpar();    
+            }                
+        }
     }
 
     public void pagamento(double valorTotal){
@@ -40,7 +69,20 @@ public class InterfaceLanchonete {
                          + "\n2. Débito"
                          + "\n3. Pix"
         );
-        int formaPagamento = scanner.nextInt();
+
+        int formaPagamento = 0;
+
+        int verificacao = 0;
+
+        while (verificacao == 0) {   
+            try {
+                formaPagamento = scanner.nextInt();  
+                verificacao = 1;
+            } catch (InputMismatchException erro) {
+                uiErro.entradaInvalida();    
+                uiLogin.limpar();    
+            }                
+        }
 
         switch (formaPagamento) {
             case 1:
@@ -63,7 +105,16 @@ public class InterfaceLanchonete {
 
     public int confirmacaoFinal(){
         System.out.println("Deseja fazer outro pedido?(1 -> Sim / 2 -> Não)");
-        int resposta = scanner.nextInt();
-        return resposta;
+        
+        while (true) {
+           
+            try {
+                int resposta = scanner.nextInt();  
+                return resposta;
+            } catch (InputMismatchException erro) {
+                uiErro.entradaInvalida();    
+                uiLogin.limpar();    
+            }                
+        }
     }
 }

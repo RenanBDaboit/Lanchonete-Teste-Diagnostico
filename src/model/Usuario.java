@@ -51,4 +51,10 @@ public class Usuario {
     public ArrayList<Usuario> getListaUsuarios(){
         return listaUsuarios;
     }
+
+    public void usuarioOriginal(ArrayList<Usuario> listaUsuarios){
+
+        listaUsuarios.add(new Usuario("Cliente", "cliente", "1234"));
+    }
+
 }

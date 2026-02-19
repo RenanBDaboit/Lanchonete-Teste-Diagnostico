@@ -24,6 +24,7 @@ public class Executar{
         int opcaoAdm;
         int respostaFinal;
 
+        usuario.usuarioOriginal(usuario.getListaUsuarios());
         usuarioAdm.usuarioOriginal(usuario.getListaUsuarios());
         produtosPadrao.adicionarProdutos(produto.getListaProdutos());
 

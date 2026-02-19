@@ -11,7 +11,7 @@ public class UsuarioAdm extends Usuario{
     public UsuarioAdm(){
     }
 
-
+    @Override
     public void usuarioOriginal(ArrayList<Usuario> listaUsuarios){
 
         listaUsuarios.add(new UsuarioAdm("Renan", "renan", "1234"));
